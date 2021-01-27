@@ -11,9 +11,11 @@ source=("https://github.com/pkubowicz/opendetex/releases/download/v${pkgver}/ope
 noextract=("pandoc-${pkgver}-linux-amd64.tar.gz")
 md5sums=('e22646c24cca62f9f7feee4ac68101b8')
 
-
-package() {
+build(){
     make
+}
+
+package() { 
     install -Dm 775 detex ${pkgdir}/usr/bin/detex
     install -D detex.1 ${pkgdir}/usr/local/share/man/man1
 }
